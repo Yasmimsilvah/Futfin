@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutFin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="left-panel">
+
+            <div class="logo">
+                FUT<span>FIN</span>
+            </div>
+
+            <p class="slogan">
+                Seu dinheiro. Sua jogada. Seu futuro.
+            </p>
+
+            <h1>Bem-vindo de volta!</h1>
+
+            <p class="descricao">
+                Faça login para continuar gerenciando suas finanças como um verdadeiro campeão.
+            </p>
+
+            <form class="login-form">
+
+                <input type="email"
+                       placeholder="Digite seu e-mail">
+
+                <input type="password"
+                       placeholder="Digite sua senha">
+
+                <a href="/dashboard" class="btn-login">
+                    Entrar ⚽
+                </a>
+
+            </form>
+
+        </div>
+
+        <div class="right-panel">
+
+            <img src="{{ url_for('static', filename='imagens/neymar.png') }}"
+                 alt="Neymar">
+
+            <div class="overlay-text">
+                <h2>Quando o saldo está negativo...</h2>
+                <p>Até o Ney fica assim 😭</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

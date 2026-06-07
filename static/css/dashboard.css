@@ -1,0 +1,284 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0a0f17;
+    color:#fff;
+    padding:30px;
+}
+
+/* TÍTULO */
+
+h1{
+    margin-bottom:30px;
+    font-size:38px;
+    font-weight:700;
+}
+
+/* CARDS SUPERIORES */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+
+    margin-bottom:25px;
+}
+
+.card{
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card h3{
+    color:#9ca3af;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.card h2{
+    font-size:30px;
+}
+
+.saldo h2{
+    color:#22c55e;
+}
+
+.receita h2{
+    color:#22c55e;
+}
+
+.despesa h2{
+    color:#ef4444;
+}
+
+/* SITUAÇÃO FINANCEIRA */
+
+.status-card{
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    min-height:180px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.status-card h2{
+    margin-bottom:15px;
+}
+
+.status-card p{
+    font-size:28px;
+    font-weight:700;
+}
+
+.positivo{
+    color:#22c55e;
+}
+
+.neutro{
+    color:#facc15;
+}
+
+.negativo{
+    color:#ef4444;
+}
+
+/* FORMULÁRIO */
+
+.form-card{
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+}
+
+.form-card h2{
+    margin-bottom:20px;
+}
+
+.form-card form{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.form-card input,
+.form-card select{
+    flex:1;
+
+    min-width:180px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1f2937;
+
+    color:white;
+}
+
+.form-card button{
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.form-card button:hover{
+    transform:translateY(-2px);
+}
+
+/* GRID */
+
+.dashboard-grid{
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    margin-top:20px;
+}
+
+/* GRÁFICO */
+
+.grafico-card{
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    min-height:450px;
+}
+
+.grafico-card h2{
+    margin-bottom:20px;
+}
+
+/* MOVIMENTAÇÕES */
+
+.mov-card{
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:20px;
+
+    padding:25px;
+}
+
+.mov-card h2{
+    margin-bottom:20px;
+}
+
+.mov-card ul{
+    list-style:none;
+}
+
+.mov-card li{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #1f2937;
+}
+
+.info-mov{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.info-mov span{
+    color:#9ca3af;
+    font-size:14px;
+}
+
+.valor-mov{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.valor-mov a{
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* BOTÃO VOLTAR */
+
+body > a{
+    display:inline-block;
+
+    margin-top:25px;
+
+    text-decoration:none;
+
+    color:#22c55e;
+
+    font-weight:600;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+}

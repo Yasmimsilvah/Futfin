@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050b18;
+}
+
+.container{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* LADO ESQUERDO */
+
+.left-panel{
+    width:40%;
+    background:#08111f;
+
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:60px;
+}
+
+.logo{
+    font-size:60px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.logo span{
+    color:#22c55e;
+}
+
+.slogan{
+    color:#9ca3af;
+    margin-bottom:40px;
+}
+
+.left-panel h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.descricao{
+    color:#9ca3af;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.login-form{
+    display:flex;
+    flex-direction:column;
+}
+
+.login-form input{
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:16px;
+}
+
+.login-form input:focus{
+    outline:none;
+    border:2px solid #22c55e;
+}
+
+.btn-login{
+    text-decoration:none;
+
+    text-align:center;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    transition:.3s;
+}
+
+.btn-login:hover{
+    transform:translateY(-3px);
+}
+
+/* LADO DIREITO */
+
+.right-panel{
+    width:60%;
+    position:relative;
+    overflow:hidden;
+}
+
+.right-panel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay-text{
+    position:absolute;
+
+    right:40px;
+    top:80px;
+
+    background:rgba(0,0,0,.6);
+
+    padding:20px;
+
+    border-radius:20px;
+
+    color:white;
+
+    max-width:300px;
+}
+
+.overlay-text h2{
+    margin-bottom:10px;
+}
+
+.overlay-text p{
+    color:#22c55e;
+    font-weight:bold;
+}

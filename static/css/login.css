@@ -1,0 +1,368 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #050505;
+    overflow: hidden;
+}
+
+.container{
+    min-height: 100vh;
+}
+
+/* =========================
+   LADO ESQUERDO
+========================= */
+
+.left{
+    width: 40%;
+    background: #050505;
+    padding: 70px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    overflow-y: auto;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.logo-icon{
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #00ff66, #00b347);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+}
+
+.logo-text h1{
+    color: white;
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.logo-text h1 span{
+    color: #00ff66;
+}
+
+.logo-text p{
+    color: #9d9d9d;
+    font-size: 12px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+.logo-text p strong{
+    color: #ffd500;
+}
+
+.title{
+    color: white;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.title span{
+    color: #ffd500;
+}
+
+.line{
+    width: 70px;
+    height: 4px;
+    background: #00ff66;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.description{
+    color: #9d9d9d;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 35px;
+}
+
+.description span{
+    color: #00ff66;
+    font-weight: 600;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+form{
+    width: 100%;
+}
+
+.input-group{
+    margin-bottom: 22px;
+}
+
+.input-group label{
+    display: block;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input-box{
+    width: 100%;
+}
+
+.input-box input{
+    width: 100%;
+    height: 58px;
+    background: #0d0d0d;
+    border: 1px solid #232323;
+    border-radius: 12px;
+    padding: 0 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus{
+    border-color: #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+}
+
+.input-box input::placeholder{
+    color: #6d6d6d;
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.remember{
+    color: #9d9d9d;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember input{
+    accent-color: #00ff66;
+}
+
+.forgot{
+    color: #00ff66;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.login-btn{
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #00ff66, #00c950);
+    color: black;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 255, 102, 0.3);
+}
+
+.divider{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #232323;
+}
+
+.google-btn{
+    width: 100%;
+    height: 58px;
+    background: transparent;
+    border: 1px solid #2b2b2b;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.google-btn:hover{
+    border-color: #00ff66;
+    background: #0d0d0d;
+}
+
+.signup{
+    text-align: center;
+    margin-top: 25px;
+    color: #888;
+    font-size: 14px;
+}
+
+.signup a{
+    color: #ffd500;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================
+   LADO DIREITO
+========================= */
+
+.right{
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.right img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.75), transparent);
+}
+
+.diagonal{
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background: #050505;
+    transform: skewX(-10deg);
+    border-right: 2px solid #ffd500;
+}
+
+.top-text{
+    position: absolute;
+    top: 90px;
+    right: 60px;
+    text-align: right;
+}
+
+.top-text p{
+    color: white;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.top-text span{
+    color: #ffd500;
+}
+
+.bottom-text{
+    position: absolute;
+    bottom: 140px;
+    right: 60px;
+    background: black;
+    padding: 18px 24px;
+    border-radius: 20px;
+    transform: rotate(-2deg);
+}
+
+.bottom-text p{
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.bottom-text span{
+    color: #00ff66;
+}
+
+.footer-box{
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    background: rgba(0,0,0,0.85);
+    padding: 18px 22px;
+    border-left: 4px solid #ffd500;
+    border-radius: 12px;
+}
+
+.footer-box p{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+.footer-box span{
+    color: #00ff66;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media(max-width: 1100px){
+
+    .right{
+        display: none;
+    }
+
+    .left{
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 600px){
+
+    .left{
+        padding: 30px;
+    }
+
+    .logo-text h1{
+        font-size: 42px;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+
+}

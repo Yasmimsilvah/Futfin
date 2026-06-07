@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Futfin</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/dashboard.css') }}"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <h1>Dashboard FutFin ⚽💰</h1>
+
+        <!-- CARDS RESUMO -->
+        <div class="cards">
+            <div class="card saldo">
+                <h3>Saldo Atual</h3>
+                <h2>R$ {{ saldo }}</h2>
+            </div>
+
+            <div class="card receita">
+                <h3>Receitas</h3>
+                <h2>R$ {{ receitas }}</h2>
+            </div>
+
+            <div class="card despesa">
+                <h3>Despesas</h3>
+                <h2>R$ {{ despesas }}</h2>
+            </div>
+        </div>
+
+        <!-- SITUAÇÃO FINANCEIRA -->
+        <div class="status-card">
+            <div class="status-info">
+                <h2>Situação Financeira</h2>
+                {% if humor == "vitória" %}
+                <h1 class="positivo"> 🔥 TÁ TRANQUILO! </h1>
+                <p> É assim que a gente gosta! Continue nesse ritmo. </p>
+                {% elif humor == "neutro" %}
+                <h1 class="neutro"> 😐 MEIO DA TABELA </h1>
+                <p> Ainda dá para melhorar o placar financeiro. </p>
+                {% else %}
+                <h1 class="negativo"> 💀 ZONA DE REBAIXAMENTO </h1>
+                <p> Hora de rever os gastos e voltar para o jogo. </p>
+                {% endif %}
+            </div>
+
+            <div class="status-image">
+                {% if humor == "vitória" %}
+                <img
+                    src="{{ url_for('static', filename='imagens/positivo.avif') }}"
+                    alt="Situação positiva"
+                />
+                {% elif humor == "neutro" %}
+                <img
+                    src="{{ url_for('static', filename='imagens/neutro.png') }}"
+                    alt="Situação neutra"
+                />
+                {% else %}
+                <img
+                    src="{{ url_for('static', filename='imagens/negativo.png') }}"
+                    alt="Situação negativa"
+                />
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="form-card">
+            <h2>Adicionar movimentação</h2>
+
+            <form action="/add" method="POST">
+                <input type="text" name="descricao" placeholder="Descrição" required />
+
+                <input
+                    type="number"
+                    step="0.01"
+                    name="valor"
+                    placeholder="Valor"
+                    required
+                />
+
+                <select name="tipo">
+                    <option value="receita">Receita</option>
+                    <option value="despesa">Despesa</option>
+                </select>
+
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="dashboard-grid">
+            <!-- GRÁFICO -->
+            <div class="grafico-card">
+                <h2>📊 Gráfico de movimentações</h2>
+                <canvas id="grafico"></canvas>
+            </div>
+
+            <!-- MOVIMENTAÇÕES -->
+            <div class="mov-card">
+                <h2>📋 Últimas movimentações</h2>
+
+                <ul>
+                    {% for gasto in gastos %}
+                    <li>
+                        <div class="info-mov">
+                            <strong>{{ gasto[1] }}</strong>
+                            <span>{{ gasto[3] }}</span>
+                        </div>
+
+                        <div class="valor-mov">
+                            <span>R$ {{ gasto[2] }}</span>
+                            <a href="/delete/{{ gasto[0] }}">❌</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <a href="/">⬅ Voltar</a>
+<script>
+const ctx = document.getElementById('grafico');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ categorias | tojson }},
+        datasets: [{
+            label: 'Movimentações',
+            data: {{ valores | tojson }},
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34,197,94,0.2)',
+            fill: true,
+            tension: 0.4
+        }]
+    }
+});
+</script>
+    </body>
+</html>
