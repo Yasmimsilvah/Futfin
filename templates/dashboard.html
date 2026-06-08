@@ -10,40 +10,85 @@
         />
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     </head>
     <body>
-        <h1>Dashboard FutFin ⚽💰</h1>
+      
+         <div class="header">
+
+          <div class="header-info">
+              <h1>Olá, {{ usuario }}</h1>
+              <p>Bem vindo ao seu painel financeiro pessoal</p>
+             </div>
+
+             <a href="/logout" class="logout-btn">
+                    <iconify-icon icon="lucide:log-out"></iconify-icon>
+                    <span>Sair</span>
+                </a>
+
+            </div>
 
         <!-- CARDS RESUMO -->
         <div class="cards">
+
             <div class="card saldo">
-                <h3>Saldo Atual</h3>
+
+                <span class="card-title">
+                    Saldo Atual
+                </span>
+
                 <h2>R$ {{ saldo }}</h2>
+
+                <iconify-icon
+                    class="card-bg-icon"
+                    icon="lucide:wallet">
+                </iconify-icon>
+
             </div>
 
             <div class="card receita">
-                <h3>Receitas</h3>
+
+                <span class="card-title">
+                    Receitas
+                </span>
+
                 <h2>R$ {{ receitas }}</h2>
+
+                <iconify-icon
+                    class="card-bg-icon"
+                    icon="lucide:trending-up">
+                </iconify-icon>
+
             </div>
 
             <div class="card despesa">
-                <h3>Despesas</h3>
-                <h2>R$ {{ despesas }}</h2>
-            </div>
-        </div>
 
+                <span class="card-title">
+                    Despesas
+                </span>
+
+                <h2>R$ {{ despesas }}</h2>
+
+                <iconify-icon
+                    class="card-bg-icon"
+                    icon="lucide:trending-down">
+                </iconify-icon>
+
+            </div>
+
+        </div>
         <!-- SITUAÇÃO FINANCEIRA -->
         <div class="status-card">
             <div class="status-info">
                 <h2>Situação Financeira</h2>
                 {% if humor == "vitória" %}
-                <h1 class="positivo"> 🔥 TÁ TRANQUILO! </h1>
+                <h1 class="positivo"> TÁ TRANQUILO! </h1>
                 <p> É assim que a gente gosta! Continue nesse ritmo. </p>
                 {% elif humor == "neutro" %}
-                <h1 class="neutro"> 😐 MEIO DA TABELA </h1>
+                <h1 class="neutro"> MEIO DA TABELA </h1>
                 <p> Ainda dá para melhorar o placar financeiro. </p>
                 {% else %}
-                <h1 class="negativo"> 💀 ZONA DE REBAIXAMENTO </h1>
+                <h1 class="negativo"> ZONA DE REBAIXAMENTO </h1>
                 <p> Hora de rever os gastos e voltar para o jogo. </p>
                 {% endif %}
             </div>
@@ -56,12 +101,12 @@
                 />
                 {% elif humor == "neutro" %}
                 <img
-                    src="{{ url_for('static', filename='imagens/neutro.png') }}"
+                    src="{{ url_for('static', filename='imagens/razoavel.jpg') }}"
                     alt="Situação neutra"
                 />
                 {% else %}
                 <img
-                    src="{{ url_for('static', filename='imagens/negativo.png') }}"
+                    src="{{ url_for('static', filename='imagens/negativo.webp') }}"
                     alt="Situação negativa"
                 />
                 {% endif %}

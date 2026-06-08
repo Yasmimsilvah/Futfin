@@ -17,18 +17,7 @@ def criar_tabela():
     )
     """)
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        senha TEXT NOT NULL
-    )
-    """)
-
     conn.commit()
     conn.close()
-
-    print("Banco atualizado com sucesso!")
 
 criar_tabela()

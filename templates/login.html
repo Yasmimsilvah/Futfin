@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FuteFin Login</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
+    <title>Login - Futefin</title>
+    
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 e ver como está o <span>jogo da sua vida.</span>
             </p>
 
-            <form>
+            <form action="/login" method="POST">
 
                 <div class="input-group">
 
@@ -52,10 +52,12 @@
                     </label>
 
                     <div class="input-box">
-                        <input 
-                            type="text"
+                        <input  
+                            type="email"
                             id="email"
-                            placeholder="Digite seu e-mail ou usuário"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            required
                         >
                     </div>
 
@@ -71,7 +73,9 @@
                         <input 
                             type="password"
                             id="senha"
+                            name="senha"
                             placeholder="Digite sua senha"
+                            required
                         >
                     </div>
 
@@ -100,13 +104,13 @@
                 <span>ou</span>
             </div>
 
-            <button class="google-btn">
-                Entrar com Google
-            </button>
+            <a href="/cadastro" class="google-btn">
+               Criar Conta
+            </a>
 
             <p class="signup">
                 Ainda não tem uma conta?
-                <a href="#">Cadastre-se</a>
+                <a href="/cadastro">Cadastre-se</a>
             </p>
         </div>
         </div>
@@ -115,7 +119,7 @@
         <div class="right">
 
             <img 
-                src="img/neymar.png" 
+                src="{{ url_for('static', filename='imagens/negativo.webp') }}"
                 alt="Jogador triste"
             >
 
