@@ -156,6 +156,13 @@ def dashboard():
     else:
         humor = "derrota"
 
+    if saldo > 0:
+        cor_saldo = "positivo"
+    elif saldo == 0:
+        cor_saldo = "neutro"
+    else:
+        cor_saldo = "negativo"
+
     categorias = []
     valores = []
 
@@ -171,6 +178,7 @@ def dashboard():
         receitas=receitas_formatadas,
         despesas=despesas_formatadas,
         saldo=saldo_formatado,
+        cor_saldo=cor_saldo,
         humor=humor,
         categorias=categorias,
         valores=valores,
@@ -224,6 +232,61 @@ def delete(id):
     cursor.execute(
         "DELETE FROM gastos WHERE id = ?",
         (id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect('/dashboard')
+
+# ==========================
+# EDITAR GASTO
+# ==========================
+@app.route('/editar/<int:id>')
+def editar(id):
+
+    if 'usuario_id' not in session:
+        return redirect('/login')
+
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT * FROM gastos WHERE id = ?",
+        (id,)
+    )
+
+    gasto = cursor.fetchone()
+
+    conn.close()
+
+    return render_template(
+        'editar.html',
+        gasto=gasto
+    )
+
+@app.route('/atualizar/<int:id>', methods=['POST'])
+def atualizar(id):
+
+    if 'usuario_id' not in session:
+        return redirect('/login')
+
+    descricao = request.form['descricao']
+    valor = float(request.form['valor'])
+    tipo = request.form['tipo']
+
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        UPDATE gastos
+        SET descricao = ?,
+            valor = ?,
+            tipo = ?
+        WHERE id = ?
+        """,
+        (descricao, valor, tipo, id)
     )
 
     conn.commit()

@@ -32,17 +32,6 @@
                 </div>
             </div>
 
-            <h2 class="title">
-                BEM-VINDO <span>DE VOLTA!</span>
-            </h2>
-
-            <div class="line"></div>
-
-            <p class="description">
-                Faça login para continuar gerenciando suas finanças
-                e ver como está o <span>jogo da sua vida.</span>
-            </p>
-
             <form action="/login" method="POST">
 
                 <div class="input-group">
@@ -95,7 +84,7 @@
                 </div>
 
                 <button type="submit" class="login-btn">
-                    ENTRAR ⚽
+                    ENTRAR
                 </button>
 
             </form>
@@ -107,11 +96,6 @@
             <a href="/cadastro" class="google-btn">
                Criar Conta
             </a>
-
-            <p class="signup">
-                Ainda não tem uma conta?
-                <a href="/cadastro">Cadastre-se</a>
-            </p>
         </div>
         </div>
 
@@ -119,8 +103,8 @@
         <div class="right">
 
             <img 
-                src="{{ url_for('static', filename='imagens/negativo.webp') }}"
-                alt="Jogador triste"
+                src="{{ url_for('static', filename='imagens/time.jpg') }}"
+                alt="Time da seleção"
             >
 
             <div class="overlay"></div>
@@ -131,13 +115,13 @@
                 <p>
                     QUANDO O <br>
                     SALDO TÁ <br>
-                    <span>NEGATIVO...</span>
+                    <span>POSITIVO...</span>
                 </p>
             </div>
 
             <div class="bottom-text">
                 <p>
-                    ATÉ O <span>NEY</span> <br>
+                    ATÉ A <span>SELEÇÃO</span> <br>
                     FICA ASSIM!
                 </p>
             </div>

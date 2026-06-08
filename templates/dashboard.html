@@ -14,7 +14,7 @@
     </head>
     <body>
       
-         <div class="header">
+        <div class="header">
 
           <div class="header-info">
               <h1>Olá, {{ usuario }}</h1>
@@ -27,91 +27,108 @@
                 </a>
 
             </div>
+            <!-- CARDS RESUMO -->
+            <div class="cards">
 
-        <!-- CARDS RESUMO -->
-        <div class="cards">
+                <div class="card saldo">
 
-            <div class="card saldo">
+                    <span class="card-title">
+                        Saldo Atual
+                    </span>
 
-                <span class="card-title">
-                    Saldo Atual
-                </span>
+                    <h2 class="{{ cor_saldo }}">
+                      R$ {{ saldo }}
+                    </h2>
 
-                <h2>R$ {{ saldo }}</h2>
+                    <iconify-icon
+                        class="card-bg-icon"
+                        icon="lucide:wallet">
+                    </iconify-icon>
 
-                <iconify-icon
-                    class="card-bg-icon"
-                    icon="lucide:wallet">
-                </iconify-icon>
+                </div>
 
-            </div>
+                <div class="card receita">
 
-            <div class="card receita">
+                    <span class="card-title">
+                        Receitas
+                    </span>
 
-                <span class="card-title">
-                    Receitas
-                </span>
+                    <h2>R$ {{ receitas }}</h2>
 
-                <h2>R$ {{ receitas }}</h2>
+                    <iconify-icon
+                        class="card-bg-icon"
+                        icon="lucide:trending-up">
+                    </iconify-icon>
 
-                <iconify-icon
-                    class="card-bg-icon"
-                    icon="lucide:trending-up">
-                </iconify-icon>
+                </div>
 
-            </div>
+                <div class="card despesa">
 
-            <div class="card despesa">
+                    <span class="card-title">
+                        Despesas
+                    </span>
 
-                <span class="card-title">
-                    Despesas
-                </span>
+                    <h2>R$ {{ despesas }}</h2>
 
-                <h2>R$ {{ despesas }}</h2>
+                    <iconify-icon
+                        class="card-bg-icon"
+                        icon="lucide:trending-down">
+                    </iconify-icon>
 
-                <iconify-icon
-                    class="card-bg-icon"
-                    icon="lucide:trending-down">
-                </iconify-icon>
+                </div>
 
-            </div>
+                    </div>
+                        <div class="status-card">
 
-        </div>
-        <!-- SITUAÇÃO FINANCEIRA -->
-        <div class="status-card">
-            <div class="status-info">
-                <h2>Situação Financeira</h2>
-                {% if humor == "vitória" %}
-                <h1 class="positivo"> TÁ TRANQUILO! </h1>
-                <p> É assim que a gente gosta! Continue nesse ritmo. </p>
-                {% elif humor == "neutro" %}
-                <h1 class="neutro"> MEIO DA TABELA </h1>
-                <p> Ainda dá para melhorar o placar financeiro. </p>
-                {% else %}
-                <h1 class="negativo"> ZONA DE REBAIXAMENTO </h1>
-                <p> Hora de rever os gastos e voltar para o jogo. </p>
-                {% endif %}
-            </div>
+                         <!-- ESQUERDA -->
+                            <div class="status-chart">
 
-            <div class="status-image">
-                {% if humor == "vitória" %}
-                <img
-                    src="{{ url_for('static', filename='imagens/positivo.avif') }}"
-                    alt="Situação positiva"
-                />
-                {% elif humor == "neutro" %}
-                <img
-                    src="{{ url_for('static', filename='imagens/razoavel.jpg') }}"
-                    alt="Situação neutra"
-                />
-                {% else %}
-                <img
-                    src="{{ url_for('static', filename='imagens/negativo.webp') }}"
-                    alt="Situação negativa"
-                />
-                {% endif %}
-            </div>
-        </div>
+                                <h2 class="chart-title">
+                                    Gráfico de movimentações
+                                </h2>
+
+                                <canvas id="grafico"></canvas>
+
+                            </div>
+
+                            <!-- DIREITA -->
+                            <div class="status-right">
+
+                            <div class="status-info">
+
+                                <h2>Situação Financeira</h2>
+
+                                {% if humor == "vitória" %}
+                                    <h1 class="positivo">TÁ TRANQUILO!</h1>
+                                    <p>É assim que a gente gosta! Continue nesse ritmo.</p>
+
+                                {% elif humor == "neutro" %}
+                                    <h1 class="neutro">MEIO DA TABELA</h1>
+                                    <p>Ainda dá para melhorar o placar financeiro.</p>
+
+                                {% else %}
+                                    <h1 class="negativo">ZONA DE REBAIXAMENTO</h1>
+                                    <p>Hora de rever os gastos e voltar para o jogo.</p>
+                                     {% endif %}
+
+                             </div>
+
+                                <div class="status-image">
+
+                                    {% if humor == "vitória" %}
+                                        <img src="{{ url_for('static', filename='imagens/positivo.avif') }}">
+                                    {% elif humor == "neutro" %}
+                                        <img src="{{ url_for('static', filename='imagens/razoavel.jpg') }}">
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='imagens/negativo.webp') }}">
+                                    {% endif %}
+
+                                 </div>
+
+                             </div>
+
+                        </div>
+                    </div>
 
         <!-- FORMULÁRIO -->
         <div class="form-card">
@@ -137,33 +154,45 @@
             </form>
         </div>
 
-        <!-- ÁREA PRINCIPAL -->
-        <div class="dashboard-grid">
-            <!-- GRÁFICO -->
-            <div class="grafico-card">
-                <h2>📊 Gráfico de movimentações</h2>
-                <canvas id="grafico"></canvas>
-            </div>
+            <!-- ÁREA PRINCIPAL -->
+            <div class="dashboard-grid">
 
-            <!-- MOVIMENTAÇÕES -->
-            <div class="mov-card">
-                <h2>📋 Últimas movimentações</h2>
+                <!-- MOVIMENTAÇÕES -->
+                <div class="mov-card">
 
-                <ul>
-                    {% for gasto in gastos %}
-                    <li>
-                        <div class="info-mov">
-                            <strong>{{ gasto[1] }}</strong>
-                            <span>{{ gasto[3] }}</span>
-                        </div>
+                    <h2>Últimas movimentações</h2>
 
-                        <div class="valor-mov">
-                            <span>R$ {{ gasto[2] }}</span>
-                            <a href="/delete/{{ gasto[0] }}">❌</a>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
+                    <ul>
+                        {% for gasto in gastos %}
+                        <li>
+
+                            <div class="info-mov">
+                                <strong>{{ gasto[1] }}</strong>
+                                <span class="{{ gasto[3] }}">
+                                    {{ gasto[3] }}
+                                </span>
+                            </div>
+
+                            <div class="valor-mov">
+
+                                <span>R$ {{ "%.2f"|format(gasto[2]) }}</span>
+
+                                <a href="/editar/{{ gasto[0] }}" class="btn-editar">
+                                    <iconify-icon icon="lucide:square-pen"></iconify-icon>
+                                </a>
+
+                                <a href="/delete/{{ gasto[0] }}" class="btn-excluir">
+                                    <iconify-icon icon="lucide:trash-2"></iconify-icon>
+                                </a>
+
+                            </div>
+
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
             </div>
         </div>
 

@@ -116,45 +116,6 @@ h1{
 
 /* CORES DOS VALORES */
 
-.saldo h2{
-    color:#22c55e;
-}
-
-.receita h2{
-    color:#22c55e;
-}
-
-.despesa h2{
-    color:#ef4444;
-}
-
-/* SITUAÇÃO FINANCEIRA */
-
-.status-card{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-
-    background:#09152d;
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:25px;
-}
-
-.status-info{
-    flex:1;
-}
-
-.status-image{
-    flex:1;
-}
-
-.status-image img{
-    width:100%;
-    border-radius:15px;
-}
-
 .positivo{
     color:#22c55e;
 }
@@ -167,18 +128,112 @@ h1{
     color:#ef4444;
 }
 
+.saldo h2.positivo{
+    color:#22c55e;
+}
+
+.saldo h2.neutro{
+    color:#facc15;
+}
+
+.saldo h2.negativo{
+    color:#ef4444;
+}
+
+.receita h2{
+    color:#22c55e;
+}
+
+.despesa h2{
+    color:#ef4444;
+}
+
+/* SITUAÇÃO FINANCEIRA */
+
+.status-title-card{
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.status-title-card h2{
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.status-title-card h1{
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.status-title-card p{
+    font-size: 18px;
+    color: #d1d5db;
+}
+
+.status-card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:25px;
+
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:30px;
+
+    margin-bottom:25px;
+}
+
+.status-chart{
+    height:450px;
+}
+
+.status-chart canvas{
+    width:100% !important;
+    height:100% !important;
+}
+
+.status-right{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.status-info h2{
+    margin-bottom:10px;
+}
+
+.status-info h1{
+    margin-bottom:15px;
+}
+
+.status-image{
+    flex:1;
+}
+
+.status-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 /* FORMULÁRIO */
 
 .form-card{
     background:#111827;
-
     border:1px solid #1f2937;
-
     border-radius:20px;
-
-    padding:25px;
-
+    padding:45px;
     margin-bottom:25px;
+    color: #facc15;
+    font-size: 20px;
 }
 
 .form-card h2{
@@ -233,47 +288,29 @@ h1{
 /* GRID */
 
 .dashboard-grid{
-    display:grid;
-
-    grid-template-columns:2fr 1fr;
-
-    gap:20px;
-
-    margin-top:20px;
-}
-
-/* GRÁFICO */
-
-.grafico-card{
-    background:#111827;
-
-    border:1px solid #1f2937;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    min-height:450px;
-}
-
-.grafico-card h2{
-    margin-bottom:20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 /* MOVIMENTAÇÕES */
 
 .mov-card{
     background:#111827;
-
     border:1px solid #1f2937;
-
     border-radius:20px;
 
-    padding:25px;
+    padding:30px;
+
+    width:100%;
+    min-width:100%;
+
+    margin:0;
 }
 
 .mov-card h2{
-    margin-bottom:20px;
+    margin-bottom:25px;
+    font-size:28px;
+    color: #facc15;
 }
 
 .mov-card ul{
@@ -282,12 +319,10 @@ h1{
 
 .mov-card li{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    padding:15px 0;
+    padding:20px 0;
 
     border-bottom:1px solid #1f2937;
 }
@@ -295,7 +330,11 @@ h1{
 .info-mov{
     display:flex;
     flex-direction:column;
-    gap:5px;
+    gap:8px;
+}
+
+.info-mov strong{
+    font-size:26px;
 }
 
 .info-mov span{
@@ -303,29 +342,75 @@ h1{
     font-size:14px;
 }
 
+.info-mov .receita{
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.info-mov .despesa{
+    color: #ef4444;
+    font-weight: 600;
+}
+
 .valor-mov{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:18px;
+}
+
+.valor-mov span{
+    font-size:16px;
 }
 
 .valor-mov a{
     text-decoration:none;
-    font-size:18px;
+    font-size:22px;
 }
 
-/* BOTÃO VOLTAR */
+/* BOTÕES DE AÇÃO */
 
-body > a{
-    display:inline-block;
+.btn-editar,
+.btn-excluir{
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    margin-top:25px;
+    width:36px;
+    height:36px;
 
-    text-decoration:none;
+    border-radius:8px;
 
-    color:#22c55e;
+    transition:0.3s;
+}
 
-    font-weight:600;
+.btn-editar{
+    color:#facc15;
+}
+
+.btn-editar:hover{
+    background:rgba(250,204,21,0.15);
+    transform:scale(1.08);
+}
+
+.btn-excluir{
+    color:#ef4444;
+}
+
+.btn-excluir:hover{
+    background:rgba(239,68,68,0.15);
+    transform:scale(1.08);
+}
+
+.btn-editar iconify-icon,
+.btn-excluir iconify-icon{
+    font-size:20px;
+}
+
+.chart-title{
+    color: #facc15;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: -5px;
 }
 
 /* RESPONSIVO */
