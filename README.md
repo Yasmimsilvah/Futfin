@@ -1,6 +1,6 @@
 # FutFin ⚽💰
 
-Sistema de controle financeiro inspirado no futebol brasileiro.
+O projeto consiste no desenvolvimento de um sistema web de controle financeiro pessoal denominado “FuteFin”, cuja proposta é auxiliar usuários no gerenciamento de suas finanças de forma prática, dinâmica e interativa. Diferente dos sistemas financeiros tradicionais, o projeto busca unir organização financeira e entretenimento, utilizando referências e memes do futebol brasileiro como forma de representar a situação financeira do usuário.
 
 ## Funcionalidades
 
